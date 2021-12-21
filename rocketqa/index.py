@@ -15,8 +15,8 @@ def main():
     fn = '../toy_data/marco.tp.1k'
     f = (Flow()
          .add(
-        uses='jinahub://RocketQADualEncoder',
-        install_requirements=True,
+        uses='jinahub+docker://RocketQADualEncoder/latest',
+        volumes='.rocketqa:/root/.rocketqa',
         uses_with={'use_cuda': False})
          .add(
         uses='jinahub://SimpleIndexer',

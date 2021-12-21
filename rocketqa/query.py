@@ -16,12 +16,14 @@ def print_answers(resp):
 
 if __name__ == '__main__':
     f = (Flow()
-         .add(uses='jinahub://RocketQADualEncoder',
+         .add(uses='jinahub+docker://RocketQADualEncoder',
+              volumes='.rocketqa:/root/.rocketqa',
               uses_with={'use_cuda': False})
          .add(uses='jinahub://SimpleIndexer/v0.10',
               uses_metas={'workspace': 'workspace_rocketqa'},
               uses_with={'match_args': {'limit': 3}})
-         .add(uses='jinahub://RocketQAReranker',
+         .add(uses='jinahub+docker://RocketQAReranker',
+              volumes='.rocketqa:/root/.rocketqa',
               uses_with={'model': 'v1_marco_ce', 'use_cuda': False})
          .add(uses='jinahub+docker://DPRReaderRanker/v0.3',
               uses_with={'title_tag_key': 'title', 'num_spans_per_match': 1},
