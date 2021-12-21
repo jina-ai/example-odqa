@@ -20,6 +20,7 @@ def main():
         uses_with={'use_cuda': False})
          .add(
         uses='jinahub://SimpleIndexer',
+        install_requirements=True,
         uses_metas={'workspace': 'workspace_rocketqa'}))
 
     with f:
