@@ -1,0 +1,3 @@
+paddlepaddle>=2.2.0
+rocketqa~=1.0.0
+jina==2.5.4
