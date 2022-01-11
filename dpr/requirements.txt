@@ -1,3 +1,4 @@
 jina==2.5.4
+scipy==1.6.1
 transformers==4.9.1
 torch==1.9.0
